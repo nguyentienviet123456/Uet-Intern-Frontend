@@ -1,0 +1,19 @@
+<div class="text-center">
+  <form class="form-signin">
+    <h1 class="h3 mb-3 font-weight-normal">Login</h1>
+    <div class="alert alert-danger" role="alert" *ngIf="message">
+      {{ message }}
+    </div> 
+    <label for="inputEmail" class="sr-only">Email address</label>
+    <input type="username" id="inputEmail" class="form-control" placeholder="User Name" autofocus #username>
+    <label for="inputPassword" class="sr-only">Password</label>
+    <input type="password" id="inputPassword" class="form-control" placeholder="Password" required #password>
+    <div class="checkbox mb-3">
+      <label>
+        <input type="checkbox" value="remember-me"> Remember me
+      </label>
+    </div>
+    <button class="btn btn-lg btn-primary btn-block" type="submit" (click)="login(username.value, password.value)">Sign in</button>
+    <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
+  </form>
+</div>

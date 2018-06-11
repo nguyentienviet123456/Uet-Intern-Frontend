@@ -1,0 +1,43 @@
+<div class="container">
+    <div class="row" style="padding-top: 50px">
+      <div class="navigation-inbox col-md-4">
+        <h4>
+          Messages
+        </h4>
+        <ul class="list-group">
+          <li class="list-group-item">
+            <a routerLink="/user/inbox">Inbox</a>
+          </li>
+          <li class="list-group-item">
+            <a routerLink="/user/send-message">Write Message</a>
+          </li>
+        </ul>
+      </div>
+      <div class="content col-md-8">
+        <div class="message-custom">
+          <h4>Write Message</h4>
+          <form novalidate>
+              <fieldset>
+                <div class="form-group">
+                  <label>To</label>
+                  <input type="text" class="form-control">
+                </div>
+      
+                <div class="form-group">
+                  <label>Title</label>
+                  <input type="text" class="form-control">
+                </div>
+              </fieldset>
+      
+              <div class="form-group">
+                <label>Your Message</label>
+                <textarea class="form-control" rows="5" id="comment"></textarea>
+              </div>
+            </form>
+            <div style="padding-top:20px">
+              <button class="btn btn-primary">Send</button>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
