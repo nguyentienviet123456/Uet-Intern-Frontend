@@ -41,12 +41,11 @@ import { ViewPartnerComponent} from './user/view-partner/view-partner.component'
 import { PartnerComponent} from './partner/partner/partner.component';
 import { Notfound404Component } from './notfound404/notfound404.component';
 import { LecturerComponent } from './lecturer/lecturer.component'
-import { AdminComponent } from './admin/admin/admin.component';
 import { NotauthorizityComponent } from './notauthorizity/notauthorizity.component'
 import { LoginGuard } from './login.guard';
 import { LecturerGuard } from './lecturer.guard';
 import { PartnerGuard } from './partner.guard';
-
+import { AdminComponent } from './admin/admin.component';
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent, canActivate: [LoginGuard] },
