@@ -6,23 +6,35 @@ import {
   Router,
   Routes
 } from '@angular/router';
+import { PartnerComponent } from './partner.component';
+import { StudentsComponent } from './students/students.component';
+import { InboxComponent } from './inbox/inbox.component';
+import { PhasesComponent } from './phases/phases.component';
+import { NavbarPartnerComponent } from './navbar-partner/navbar-partner.component';
+import { InfoComponent } from './info/info.component';
 
-import { PartnerComponent } from './partner/partner.component';
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'partner', pathMatch: 'full' },
-  { path: 'partner',component: PartnerComponent}
+  { path: '', redirectTo: 'students', pathMatch: 'full' },
+  { path: 'students',component: StudentsComponent},
+  { path: 'inbox',component: InboxComponent},
+  { path: 'phases',component: PhasesComponent},
+  { path: 'info', component: InfoComponent}
 ];
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule,
   ],
   declarations: [
-    PartnerComponent
-  ],
+  PartnerComponent,
+  StudentsComponent,
+  InboxComponent,
+  PhasesComponent,
+  NavbarPartnerComponent,
+  InfoComponent],
   exports: [
-    PartnerComponent
   ]
 })
 export class PartnerModule { }

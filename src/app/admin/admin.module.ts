@@ -13,14 +13,20 @@ import { StudentsComponent } from './students/students.component';
 import { LecturersComponent } from './lecturers/lecturers.component';
 import { PartnersComponent } from './partners/partners.component';
 import { PhasesComponent } from './phases/phases.component';
+import { InboxComponent } from './inbox/inbox.component';
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'admin', pathMatch: 'full' },
-  { path: 'admin',component: AdminComponent}
+  { path: '', redirectTo: 'students', pathMatch: 'full' },
+  { path: 'students', component: StudentsComponent},
+  { path: 'partners', component: PartnersComponent},
+  { path: 'lecturers', component: LecturersComponent},
+  { path: 'phases', component: PhasesComponent},
+  { path: 'inbox', component: InboxComponent}
 ];
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule,
   ],
   declarations: [
     AdminComponent,
@@ -28,7 +34,8 @@ export const routes: Routes = [
     StudentsComponent,
     LecturersComponent,
     PartnersComponent,
-    PhasesComponent
+    PhasesComponent,
+    InboxComponent
   ],
   exports: [
     AdminComponent
