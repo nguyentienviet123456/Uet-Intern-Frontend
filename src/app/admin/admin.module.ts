@@ -14,10 +14,12 @@ import { LecturersComponent } from './lecturers/lecturers.component';
 import { PartnersComponent } from './partners/partners.component';
 import { PhasesComponent } from './phases/phases.component';
 import { InboxComponent } from './inbox/inbox.component';
+import { StudentDetailComponent } from './student-detail/student-detail.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'students', pathMatch: 'full' },
   { path: 'students', component: StudentsComponent},
+  { path: 'student/:id', component: StudentDetailComponent},
   { path: 'partners', component: PartnersComponent},
   { path: 'lecturers', component: LecturersComponent},
   { path: 'phases', component: PhasesComponent},
@@ -35,7 +37,8 @@ export const routes: Routes = [
     LecturersComponent,
     PartnersComponent,
     PhasesComponent,
-    InboxComponent
+    InboxComponent,
+    StudentDetailComponent
   ],
   exports: [
     AdminComponent
