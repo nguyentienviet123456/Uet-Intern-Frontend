@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import {
   RouterModule,
   Routes
@@ -46,6 +47,8 @@ import { LecturerGuard } from './lecturer.guard';
 import { PartnerGuard } from './partner.guard';
 import { AdminComponent } from './admin/admin.component';
 import { PartnerComponent } from './partner/partner.component';
+import { GridModule } from '@progress/kendo-angular-grid';
+
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent, canActivate: [LoginGuard] },
@@ -94,6 +97,8 @@ const routes: Routes = [
     PartnerModule,
     LecturerModule,
     AdminModule,
+    GridModule,
+    FormsModule
   ],
   providers: [
     AUTH_PROVIDERS,

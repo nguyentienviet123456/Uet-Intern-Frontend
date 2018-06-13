@@ -15,6 +15,10 @@ import { PartnersComponent } from './partners/partners.component';
 import { PhasesComponent } from './phases/phases.component';
 import { InboxComponent } from './inbox/inbox.component';
 import { StudentDetailComponent } from './student-detail/student-detail.component';
+import { GridModule } from '@progress/kendo-angular-grid';
+import { PagerService } from '../pager.service';
+import { HttpModule } from '@angular/http';
+
 
 export const routes: Routes = [
   { path: '', redirectTo: 'students', pathMatch: 'full' },
@@ -23,12 +27,14 @@ export const routes: Routes = [
   { path: 'partners', component: PartnersComponent},
   { path: 'lecturers', component: LecturersComponent},
   { path: 'phases', component: PhasesComponent},
-  { path: 'inbox', component: InboxComponent}
+  { path: 'inbox', component: InboxComponent},
 ];
 @NgModule({
   imports: [
     CommonModule,
     RouterModule,
+    GridModule,
+    HttpModule
   ],
   declarations: [
     AdminComponent,
@@ -42,6 +48,9 @@ export const routes: Routes = [
   ],
   exports: [
     AdminComponent
+  ],
+  providers: [
+    PagerService
   ]
 })
 export class AdminModule { }

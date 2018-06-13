@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -8,6 +10,9 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   message: string;
+  username: string;
+  userpassword: string;
+
   constructor(private authService: AuthService, public _router: Router) {
     this.message = '';
    }
@@ -15,7 +20,12 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
+
+
   login(username: string, password: string) {
+
+    username = this.username;
+    password = this.userpassword;
     this.message = '';
     if (!this.authService.login(username, password)) {
       this.message = 'Incorrect credentials.';
