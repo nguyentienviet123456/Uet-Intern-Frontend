@@ -13,6 +13,7 @@ import { InfoLecturerComponent } from './info-lecturer/info-lecturer.component';
 import { LecturerStudentsComponent } from './lecturer-students/lecturer-students.component';
 import { LecturerStudentReportComponent } from './lecturer-student-report/lecturer-student-report.component';
 import { LecturerReportAdminComponent } from './lecturer-report-admin/lecturer-report-admin.component';
+import { FormsModule } from '@angular/forms';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'info', pathMatch: 'full' },
@@ -27,6 +28,7 @@ export const routes: Routes = [
   imports: [
     CommonModule,
     RouterModule,
+    FormsModule
   ],
   declarations: [
     LecturerComponent,

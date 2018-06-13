@@ -18,7 +18,7 @@ import { StudentDetailComponent } from './student-detail/student-detail.componen
 import { GridModule } from '@progress/kendo-angular-grid';
 import { PagerService } from '../pager.service';
 import { HttpModule } from '@angular/http';
-
+import { FormsModule } from '@angular/forms';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'students', pathMatch: 'full' },
@@ -34,7 +34,8 @@ export const routes: Routes = [
     CommonModule,
     RouterModule,
     GridModule,
-    HttpModule
+    HttpModule,
+    FormsModule
   ],
   declarations: [
     AdminComponent,

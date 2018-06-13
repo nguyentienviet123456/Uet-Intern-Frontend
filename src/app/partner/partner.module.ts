@@ -12,7 +12,7 @@ import { InboxComponent } from './inbox/inbox.component';
 import { PhasesComponent } from './phases/phases.component';
 import { NavbarPartnerComponent } from './navbar-partner/navbar-partner.component';
 import { InfoComponent } from './info/info.component';
-
+import { FormsModule } from '@angular/forms';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'students', pathMatch: 'full' },
@@ -26,6 +26,7 @@ export const routes: Routes = [
   imports: [
     CommonModule,
     RouterModule,
+    FormsModule
   ],
   declarations: [
   PartnerComponent,

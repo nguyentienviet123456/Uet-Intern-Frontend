@@ -18,6 +18,7 @@ import { InternInfoComponent } from './intern-info/intern-info.component';
 import { ViewPartnerComponent } from './view-partner/view-partner.component';
 import { InboxComponent } from './inbox/inbox.component';
 import { SendComponent } from './inbox/send/send.component';
+import { FormsModule } from '@angular/forms';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'recruitment', pathMatch: 'full' },
@@ -35,6 +36,7 @@ export const routes: Routes = [
   imports: [
     CommonModule,
     RouterModule,
+    FormsModule
   ],
   declarations: [
     UserComponent,
