@@ -19,6 +19,8 @@ import { ViewPartnerComponent } from './view-partner/view-partner.component';
 import { InboxComponent } from './inbox/inbox.component';
 import { SendComponent } from './inbox/send/send.component';
 import { FormsModule } from '@angular/forms';
+import { AdminService } from '../services/admin.service';
+import { PagerService } from '../pager.service';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'recruitment', pathMatch: 'full' },
@@ -62,5 +64,9 @@ export const routes: Routes = [
     InboxComponent,
     SendComponent
   ],
+  providers: [
+    AdminService,
+    PagerService
+  ]
 })
 export class UserModule { }
