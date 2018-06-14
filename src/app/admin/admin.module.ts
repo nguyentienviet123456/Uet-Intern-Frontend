@@ -6,7 +6,8 @@ import {
   Router,
   Routes
 } from '@angular/router';
-
+import {ToastModule} from 'ng2-toastr/ng2-toastr';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { AdminComponent } from './admin.component';
 import { NavbarAdminComponent } from './navbar-admin/navbar-admin.component';
 import { StudentsComponent } from './students/students.component';
@@ -19,6 +20,11 @@ import { GridModule } from '@progress/kendo-angular-grid';
 import { PagerService } from '../pager.service';
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
+import { NewstudentComponent } from './student-detail/newstudent/newstudent.component';
+import { LecturerDetailComponent } from './lecturer-detail/lecturer-detail.component';
+import { NewlecturerComponent } from './lecturer-detail/newlecturer/newlecturer.component';
+import { PartnerDetailComponent } from './partner-detail/partner-detail.component';
+import { NewpartnerComponent } from './partner-detail/newpartner/newpartner.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'students', pathMatch: 'full' },
@@ -28,6 +34,11 @@ export const routes: Routes = [
   { path: 'lecturers', component: LecturersComponent},
   { path: 'phases', component: PhasesComponent},
   { path: 'inbox', component: InboxComponent},
+  { path: 'newstudent', component: NewstudentComponent},
+  { path: 'lecturer/:id', component: LecturerDetailComponent},
+  { path: 'newlecturer', component: NewlecturerComponent},
+  { path: 'partner/:id', component: PartnerDetailComponent},
+  { path: 'newpartner', component: NewpartnerComponent},
 ];
 @NgModule({
   imports: [
@@ -35,7 +46,9 @@ export const routes: Routes = [
     RouterModule,
     GridModule,
     HttpModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule, 
+    ToastModule.forRoot()
   ],
   declarations: [
     AdminComponent,
@@ -45,7 +58,12 @@ export const routes: Routes = [
     PartnersComponent,
     PhasesComponent,
     InboxComponent,
-    StudentDetailComponent
+    StudentDetailComponent,
+    NewstudentComponent,
+    LecturerDetailComponent,
+    NewlecturerComponent,
+    PartnerDetailComponent,
+    NewpartnerComponent
   ],
   exports: [
     AdminComponent

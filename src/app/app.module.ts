@@ -1,6 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import {ToastModule} from 'ng2-toastr/ng2-toastr';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+
 import {
   RouterModule,
   Routes
@@ -48,6 +51,7 @@ import { PartnerGuard } from './partner.guard';
 import { AdminComponent } from './admin/admin.component';
 import { PartnerComponent } from './partner/partner.component';
 import { GridModule } from '@progress/kendo-angular-grid';
+import { ToasterServiceService } from './toaster-service.service';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -98,7 +102,9 @@ const routes: Routes = [
     LecturerModule,
     AdminModule,
     GridModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule, 
+    ToastModule.forRoot()
   ],
   providers: [
     AUTH_PROVIDERS,
@@ -106,7 +112,8 @@ const routes: Routes = [
     LoggedInGuardAdmin,
     PartnerGuard,
     LecturerGuard,
-    LoginGuard
+    LoginGuard,
+    ToasterServiceService
   ],
   bootstrap: [AppComponent]
 })

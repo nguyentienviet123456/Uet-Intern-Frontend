@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewContainerRef  } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-
+import { ToastsManager } from 'ng2-toastr/ng2-toastr';
+import { ToasterServiceService } from '../toaster-service.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -13,17 +14,21 @@ export class LoginComponent implements OnInit {
   username: string;
   userpassword: string;
 
-  constructor(private authService: AuthService, public _router: Router) {
+  constructor(private authService: AuthService, public _router: Router, public toastr: ToastsManager, vcr: ViewContainerRef, private _toasterService: ToasterServiceService) {
     this.message = '';
+    this.toastr.setRootViewContainerRef(vcr);
    }
 
   ngOnInit() {
   }
 
-
-
   login(username: string, password: string) {
-
+    try{
+      this._toasterService.Success('You are awesome!', 'Success!');
+    }
+    catch(error){
+      console.log(error);
+    }
     username = this.username;
     password = this.userpassword;
     this.message = '';
@@ -36,15 +41,19 @@ export class LoginComponent implements OnInit {
     } else {
       // tslint:disable-next-line:no-unused-expression
       if(localStorage.getItem('role') == 'user'){
+        this.toastr.success('You are awesome!', 'Success!');
         this.Navigate('user');
       }
       if(localStorage.getItem('role') == 'admin'){
+        this.toastr.success('You are awesome!', 'Success!');
         this.Navigate('admin');
       }
       if(localStorage.getItem('role') == 'partner'){
+        this.toastr.success('You are awesome!', 'Success!');
         this.Navigate('partner');
       }
       if(localStorage.getItem('role') == 'lecturer'){
+        this.toastr.success('You are awesome!', 'Success!');
         this.Navigate('lecturer');
       }
     }

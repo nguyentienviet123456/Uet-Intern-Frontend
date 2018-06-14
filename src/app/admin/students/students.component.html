@@ -4,15 +4,24 @@
             <h4>
                 All Students
             </h4>
+            <div>
+                <p>
+                    <a routerLink='/admin/newstudent'>Create New Student</a>
+                </p>
+            </div>
             <ul class="list-group">
                 <li class="list-group-item row d-flex">
+                    <div class="col-1">MSSV</div>
                     <div class="col-4">Name</div>
-                    <div class="col-8">Edit</div>
+                    <div class="col-4">Birthday</div>
+                    <div class="col-3">Edit</div>
                 </li>
                 <div *ngFor="let item of pagedItems">
                     <li class="list-group-item row d-flex">
+                        <div class="col-1">MSSV</div>
                         <div class="col-4">{{item.name}}</div>
-                        <div class="col-8">
+                        <div class="col-4">Birthday</div>
+                        <div class="col-3">
                             <button class="btn btn-info">Edit</button>
                         </div>
                     </li>
