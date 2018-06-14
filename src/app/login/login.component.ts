@@ -38,43 +38,49 @@ export class LoginComponent implements OnInit {
     username = this.username;
     password = this.userpassword;
     this.message = '';
-    this.authService.AuthenticateUser(username, password).subscribe(data =>{
-      if(data !== null || data !== undefined){
-        this.token = data.token;
-        this.authService.StoreUserData(this.token);
-        this.token ="JWT " + localStorage.getItem('token');
-        this.authService.GetUserByToken(this.token).subscribe(res => {
-          console.log("test");
-          console.log(res);
-          if(res !== null || res !== undefined){
-            this._spinner.hide();
-            this._toasterService.Success('Login!', 'Success!');
-            //set role
-            localStorage.setItem('role',res.role);
-            if (res.role == 'sinhvien') {
-              this.Navigate('user');
+    try{
+      this.authService.AuthenticateUser(username, password).subscribe(data =>{
+        if(data !== null || data !== undefined){
+          this.token = data.token;
+          this.authService.StoreUserData(this.token);
+          this.token ="JWT " + localStorage.getItem('token');
+          this.authService.GetUserByToken(this.token).subscribe(res => {
+            console.log("test");
+            console.log(res);
+            if(res !== null || res !== undefined){
+              this._spinner.hide();
+              this._toasterService.Success('Login!', 'Success!');
+              //set role
+              localStorage.setItem('role',res.role);
+              if (res.role == 'sinhvien') {
+                this.Navigate('user');
+              }
+              if (res.role == 'admin') {
+                this.Navigate('admin');
+              }
+              if (res.role == 'partner') {
+                this.Navigate('partner');
+              }
+              if (res.role == 'lecturer') {
+                this.Navigate('lecturer');
+              }
+            }else{
+              this._spinner.hide();
+              this._toasterService.Error('Login!', 'Fail!');
             }
-            if (res.role == 'admin') {
-              this.Navigate('admin');
-            }
-            if (res.role == 'partner') {
-              this.Navigate('partner');
-            }
-            if (res.role == 'lecturer') {
-              this.Navigate('lecturer');
-            }
-          }else{
-            this._toasterService.Error('Login!', 'Fail!');
-          }
-      });
-      }else{
-        this.message = 'Incorrect credentials.';
-        setTimeout(function () {
-          this.message = '';
-        }.bind(this), 2500);
-        return false;
-      }
-    })
+        });
+        }else{
+          this._spinner.hide();
+          this.message = 'Incorrect credentials.';
+          setTimeout(function () {
+            this.message = '';
+          }.bind(this), 2500);
+          return false;
+        }
+      })
+    }catch(error){
+      console.log(error);
+    }
   }
 
   logout(): boolean {

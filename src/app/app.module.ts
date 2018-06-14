@@ -117,7 +117,7 @@ const routes: Routes = [
     LecturerGuard,
     LoginGuard,
     ToasterServiceService,
-    UserService
+    UserService,
   ],
   bootstrap: [AppComponent]
 })

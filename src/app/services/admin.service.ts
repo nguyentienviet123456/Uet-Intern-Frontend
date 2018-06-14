@@ -11,7 +11,7 @@ export class AdminService {
   private _urlUpdateSemester = this.BaseUrl+"/api/admin/update-semester/{0}";
   private _urlNewSemester = this.BaseUrl+ "/api/admin/semesters";
   private _urlGetAllSemester = this.BaseUrl+ "/api/admin/semesters";
-  private _urlAccounts = this.BaseUrl+"/api/admin/accounts/{0}";
+  private _urlGetByRole = this.BaseUrl+"/api/admin/accounts/all/role";
   private _urlPhongVan = this.BaseUrl+ "/api/admin/phongvan/{0}/{1}/{2}";
   private _urlThucTap = this.BaseUrl+ "/api/admin/thuctap/{0}/{1}/{2}";
   private _urlDanhGiaAll = this.BaseUrl+ "/api/admin/danhgia/all/{0}";
@@ -29,5 +29,12 @@ export class AdminService {
   //cap nhat diem danh gia giang vien
   //thong ke va bao cao
   //quan ly doi tac
-
+  //get by role
+  public GetByRole(role: string, token: string){
+    let headers = new Headers();
+    headers.append('Content-type', 'application/json');
+    headers.append('Authorization', token);
+    return this._http.get(this.BaseUrl+"/api/admin/accounts/all/"+ role , { headers: headers })
+      .map(res => res.json());
+  }
 }

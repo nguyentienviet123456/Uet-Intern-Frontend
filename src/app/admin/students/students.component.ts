@@ -4,7 +4,8 @@ import { Http, Headers, RequestOptions, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import { samples } from './Samples';
-
+import { AdminService } from '../../services/admin.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 @Component({
   selector: 'app-students',
   templateUrl: './students.component.html',
@@ -12,7 +13,11 @@ import { samples } from './Samples';
 })
 export class StudentsComponent implements OnInit {
 
-  constructor(private http: Http, private pagerService: PagerService) { }
+  constructor(private http: Http, 
+    private pagerService: PagerService,
+    private _adminService: AdminService,
+    private _spinner: NgxSpinnerService
+  ) { }
 
    // array of all items to be paged
    private allItems: any[];
@@ -24,18 +29,15 @@ export class StudentsComponent implements OnInit {
    pagedItems: any[];
 
    ngOnInit() {
-       // get dummy data
-      //  this.http.get('.admin/students/dummy-data.json')
-      //      .map((response: Response) => response.json())
-      //      .subscribe(data => {
-      //          // set items to json response
-      //          this.allItems = data;
-
-      //          // initialize to page 1
-      //          this.setPage(1);
-      //      });
-      this.allItems = samples;
+    let token = "JWT " + localStorage.getItem('token');
+    this._spinner.show();
+    this._adminService.GetByRole('sinhvien', token).subscribe(res =>{
+      if(res !== undefined){
+        this.allItems = res;
+        this._spinner.hide();
+      }
       this.setPage(1);
+    })
    }
 
    setPage(page: number) {

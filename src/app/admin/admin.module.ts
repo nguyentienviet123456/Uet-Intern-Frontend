@@ -25,6 +25,7 @@ import { LecturerDetailComponent } from './lecturer-detail/lecturer-detail.compo
 import { NewlecturerComponent } from './lecturer-detail/newlecturer/newlecturer.component';
 import { PartnerDetailComponent } from './partner-detail/partner-detail.component';
 import { NewpartnerComponent } from './partner-detail/newpartner/newpartner.component';
+import { AdminService } from '../services/admin.service';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'students', pathMatch: 'full' },
@@ -69,7 +70,8 @@ export const routes: Routes = [
     AdminComponent
   ],
   providers: [
-    PagerService
+    PagerService,
+    AdminService
   ]
 })
 export class AdminModule { }

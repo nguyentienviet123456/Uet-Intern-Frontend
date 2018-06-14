@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { Constants } from './model/constants';
-
+import { Observable } from "rxjs/Rx";
 @Injectable()
 export class AuthService {
   private _urlLogin = Constants.BaseUrl + "/api/auth/login";
@@ -48,7 +48,7 @@ export class AuthService {
     let headers = new Headers();
     headers.append('Content-type', 'application/json');
     return this._http.post(this._urlLogin, {username: username, password: password}, { headers: headers })
-      .map(res => res.json());
+      .map(res => res.json())
   }
   
   /**
@@ -61,6 +61,7 @@ export class AuthService {
     return this._http.get(this._urlGetUserByToken, { headers: headers })
       .map(res => res.json());
   }
+  
 }
 
 export const AUTH_PROVIDERS: Array<any> = [
