@@ -1,34 +1,33 @@
-<div  class="row justify-content-center" style="padding-top: 20px">
-  <div class="col-8">
-    <h4 style="border-bottom: 1px dotted black">
-      Create New Lecturer
-    </h4>
-    <div class="informatino-form">
-      <form novalidate>
-        <fieldset>
-          <div class="form-group">
-            <label>Name</label>
-            <input type="text" class="form-control" >
+<div class="row justify-content-center" style="padding-top: 20px">
+    <div class="col-8">
+      <h4 style="border-bottom: 1px dotted black">
+         New Lecturer
+      </h4>
+      <div class="informatino-form">
+        <form novalidate>
+          <div class="row">
+            <div class="form-group col-md-6">
+              <label>User Name</label>
+              <input type="text" class="form-control" [(ngModel)]="username" [ngModelOptions]="{standalone: true}" autocomplete='username'>
+            </div>
+  
+            <div class="form-group col-md-6">
+              <label>Full Name</label>
+              <input type="text" class="form-control" [(ngModel)]="fullname" [ngModelOptions]="{standalone: true}" autocomplete='fullname'>
+            </div>
+            <div class="form-group col-md-6">
+              <label>Email</label>
+              <input type="text" class="form-control" [(ngModel)]="email" [ngModelOptions]="{standalone: true}" autocomplete='email'>
+            </div>
+           
+            <div class="form-group col-md-6">
+              <label>Sdt</label>
+              <input type="text" class="form-control" [(ngModel)]="sdt" [ngModelOptions]="{standalone: true}" autocomplete='sdt'>
+            </div>
           </div>
-
-          <div class="form-group">
-            <label>Mssv</label>
-            <input type="text" class="form-control" >
-          </div>
-        </fieldset>
-
-        <div class="form-group">
-          <label>email</label>
-          <input type="text" class="form-control" >
+        </form>
+        <div style="padding-top:20px">
+          <button class="btn btn-primary" (click)="CreateStudent()">Update</button>
         </div>
-
-        <div class="form-group">
-          <label>password</label>
-          <input type="password" class="form-control" >
-        </div>
-      </form>
-      <div style="padding-top:20px">
-        <button class="btn btn-primary" (click)="CreateStudent()">Update</button>
       </div>
     </div>
-</div>

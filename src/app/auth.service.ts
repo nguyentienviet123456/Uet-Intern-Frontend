@@ -3,7 +3,6 @@ import { Http, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { Constants } from './model/constants';
 import { Observable } from "rxjs/Rx";
-import { constants } from 'fs';
 @Injectable()
 export class AuthService {
   private _urlLogin = Constants.BaseUrl + "/api/auth/login";
