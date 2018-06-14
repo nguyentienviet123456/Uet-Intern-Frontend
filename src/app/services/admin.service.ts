@@ -49,14 +49,30 @@ export class AdminService {
   }
 
   //updates student
-  public UpdateStudent(token: string, data: any){
+  public UpdateStudent(id:number, token: string, data: any){
     let headers = new Headers();
     headers.append('Content-type', 'application/json');
     headers.append('Authorization', token);
-    let body = {
+    let body =  JSON.stringify({
+      username: data.username,
+      email: data.email,
+      role: data.role,
+      fullname: data.fullname,
+      birth: data.birth,
+      sdt: data.sdt,
+      lop: data.lop,
+      khoa: data.khoa,
+      nganh: data.nganh,
+      gpa: data.gpa,
+      nam_tot_nghiep: data.nam_tot_nghiep,
+      skype_id : data.skype_id,
+      fb_di: data.fb_di,
+      ngoai_ngu: data.ngoai_ngu,
+      chung_chi: data.chung_chi,
       kinh_nghiem: data.kinh_nghiem,
-    };
-    return this._http.post(this.BaseUrl+"/api/auth/account",JSON.stringify(body) , { headers: headers })
+      contact: data.contact,
+    }); 
+    return this._http.post(this.BaseUrl+"/api/admin/account/"+ id, body , { headers: headers })
     .map(res => res.json());
   }
 }

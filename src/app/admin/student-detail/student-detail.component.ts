@@ -36,7 +36,7 @@ export class StudentDetailComponent implements OnInit {
 
   UpdateDateStudent(){
     this._spinner.show();
-    this._adminService.UpdateStudent(this.token, this.Student).subscribe(res => {
+    this._adminService.UpdateStudent(this.studentId,this.token, this.Student).subscribe(res => {
       if(res !== null || res !== undefined){
         this._spinner.hide();
         console.log(res);
