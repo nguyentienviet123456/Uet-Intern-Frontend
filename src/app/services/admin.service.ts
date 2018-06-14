@@ -21,6 +21,7 @@ export class AdminService {
   private _urlDeleteAccount = this.BaseUrl+ "/api/admin/del-account/{0}";
   private _urlDeleteSemester = this.BaseUrl+ "/api/admin/del-semester/{0}";
   private _urlDanhGiaNhom = this.BaseUrl+ "/api/admin/danhgia/nhom/{0}";
+  private _urlGetStudentById = this.BaseUrl + "/api/admin/account/id";
   //quan ly tai khoan
   //quan ly dot thuc tap
   //gui nhan thong bao
@@ -29,12 +30,33 @@ export class AdminService {
   //cap nhat diem danh gia giang vien
   //thong ke va bao cao
   //quan ly doi tac
-  //get by role
+  //gets by role
   public GetByRole(role: string, token: string){
     let headers = new Headers();
     headers.append('Content-type', 'application/json');
     headers.append('Authorization', token);
     return this._http.get(this.BaseUrl+"/api/admin/accounts/all/"+ role , { headers: headers })
       .map(res => res.json());
+  }
+
+  //gets student by Id
+  public GetStudentById(id: number, token: string){
+    let headers = new Headers();
+    headers.append('Content-type', 'application/json');
+    headers.append('Authorization', token);
+    return this._http.get(this.BaseUrl+"/api/admin/account/"+ id , { headers: headers })
+      .map(res => res.json());
+  }
+
+  //updates student
+  public UpdateStudent(token: string, data: any){
+    let headers = new Headers();
+    headers.append('Content-type', 'application/json');
+    headers.append('Authorization', token);
+    let body = {
+      kinh_nghiem: data.kinh_nghiem,
+    };
+    return this._http.post(this.BaseUrl+"/api/auth/account",JSON.stringify(body) , { headers: headers })
+    .map(res => res.json());
   }
 }

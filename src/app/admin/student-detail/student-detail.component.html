@@ -1,3 +1,89 @@
-<p>
-  student-detail works!
-</p>
+<div class="row justify-content-center" style="padding-top: 20px">
+  <div class="col-8">
+    <h4 style="border-bottom: 1px dotted black">
+      Update Student
+    </h4>
+    <div class="informatino-form">
+      <form novalidate>
+        <div class="row">
+          <div class="form-group col-md-6">
+            <label>User Name</label>
+            <input type="text" class="form-control" [(ngModel)]="Student.username" [ngModelOptions]="{standalone: true}" autocomplete='Student.username'>
+          </div>
+
+          <div class="form-group col-md-6">
+            <label>Full Name</label>
+            <input type="text" class="form-control" [(ngModel)]="Student.fullname" [ngModelOptions]="{standalone: true}" autocomplete='Student.fullname'>
+          </div>
+          <div class="form-group col-md-6">
+            <label>Email</label>
+            <input type="text" class="form-control" [(ngModel)]="Student.email" [ngModelOptions]="{standalone: true}" autocomplete='Student.email'>
+          </div>
+
+          <div class="form-group col-md-6">
+            <label>Sdt</label>
+            <input type="text" class="form-control" [(ngModel)]="Student.sdt" [ngModelOptions]="{standalone: true}" autocomplete='Student.sdt'>
+          </div>
+
+
+          <div class="form-group col-md-6">
+            <label>Lớp</label>
+            <input type="text" class="form-control" [(ngModel)]="Student.lop" [ngModelOptions]="{standalone: true}" autocomplete='Student.lop'>
+          </div>
+
+          <div class="form-group col-md-6">
+            <label>Khoa</label>
+            <input type="text" class="form-control" [(ngModel)]="Student.khoa" [ngModelOptions]="{standalone: true}" autocomplete='Student.khoa'>
+          </div>
+
+          <div class="form-group col-md-6">
+            <label>Ngành</label>
+            <input type="text" class="form-control" [(ngModel)]="Student.nganh" [ngModelOptions]="{standalone: true}" autocomplete='Student.nganh'>
+          </div>
+
+          <div class="form-group col-md-6">
+            <label>GPA</label>
+            <input type="text" class="form-control" [(ngModel)]="Student.gpa" [ngModelOptions]="{standalone: true}" autocomplete='Student.gpa'>
+          </div>
+
+          <div class="form-group col-md-6">
+            <label>Năm Tốt Nghiệp</label>
+            <input type="text" class="form-control" [(ngModel)]="Student.nam_tot_nghiep" [ngModelOptions]="{standalone: true}" autocomplete='Student.nam_tot_nghiep'>
+          </div>
+
+          <div class="form-group col-md-6">
+            <label>Ngoại ngữ</label>
+            <input type="text" class="form-control" [(ngModel)]="Student.ngoai_ngu" [ngModelOptions]="{standalone: true}" autocomplete='Student.ngoai_ngu'>
+          </div>
+
+          <div class="form-group col-md-6">
+            <label>Chứng chỉ</label>
+            <input type="text" class="form-control" [(ngModel)]="Student.chung_chi" [ngModelOptions]="{standalone: true}" autocomplete='Student.chung_chi'>
+          </div>
+
+          <div class="form-group col-md-6">
+            <label>Kinh Nghiệm</label>
+            <input type="text" class="form-control" [(ngModel)]="Student.kinh_nghiem" [ngModelOptions]="{standalone: true}" autocomplete='Student.kinh_nghiem'>
+          </div>
+
+          <div class="form-group col-md-6">
+            <label>Sở thích</label>
+            <input type="text" class="form-control" [(ngModel)]="Student.so_thich" [ngModelOptions]="{standalone: true}" autocomplete='Student.so_thich'>
+          </div>
+
+          <div class="form-group col-md-6">
+            <label>Định hướng</label>
+            <input type="text" class="form-control" [(ngModel)]="Student.dinh_huong" [ngModelOptions]="{standalone: true}" autocomplete='Student.dinh_huong'>
+          </div>
+
+          <div class="form-group col-md-6">
+            <label>Vai trò</label>
+            <input type="text" class="form-control" [(ngModel)]="Student.role" [ngModelOptions]="{standalone: true}" autocomplete='Student.role'>
+          </div>
+        </div>
+      </form>
+      <div style="padding-top:20px">
+        <button class="btn btn-primary" (click)="UpdateDateStudent()">Update</button>
+      </div>
+    </div>
+  </div>

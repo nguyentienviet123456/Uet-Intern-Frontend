@@ -61,6 +61,28 @@ export class AuthService {
     return this._http.get(this._urlGetUserByToken, { headers: headers })
       .map(res => res.json());
   }
+
+  public GetUserRoleByToken(token: string): string{
+    let headers = new Headers();
+    headers.append('Content-type', 'application/json');
+    headers.append('Authorization', token);
+    let role: string;
+    try{
+      this._http.get(this._urlGetUserByToken, { headers: headers })
+      .map(res => res.json())
+      .subscribe(data => {
+        if(data !== null || data !== undefined){
+          role = data.role;
+        }
+        else{
+          return "";
+        }
+      });
+    }
+    catch(error){
+    }
+    return role;
+  }
   
 }
 
