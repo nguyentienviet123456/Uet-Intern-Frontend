@@ -113,4 +113,33 @@ export class AdminService {
     return this._http.post(this.BaseUrl+"/api/admin/accounts/all/"+role ,body, { headers: headers })
       .map(res => res.json());
   }
+
+  //Edits Phase
+  public UpdatePhase(id: string, token: string, data: any)
+  {
+    let headers = new Headers();
+    headers.append('Content-type', 'application/json');
+    headers.append('Authorization', token);
+    let body =  JSON.stringify({
+      name: data.name,
+      year: data.year,
+      status: data.status,
+    }); 
+    return this._http.post(this.BaseUrl+"/api/admin/semesters/edit/"+id ,body, { headers: headers })
+      .map(res => res.json());
+  }
+
+   //News Phase
+   public CreatePhase( token: string, data: any)
+   {
+     let headers = new Headers();
+     headers.append('Content-type', 'application/json');
+     headers.append('Authorization', token);
+     let body =  JSON.stringify({
+       name: data.name,
+       year: data.year,
+     }); 
+     return this._http.post(this.BaseUrl+"/api/admin/semesters" ,body, { headers: headers })
+       .map(res => res.json());
+   }
 }

@@ -2,27 +2,27 @@
     <div class="container">
         <div class="text-center">
             <h4>
-                All Semesters
+                All Admins
             </h4>
             <div>
                 <p>
-                   <a routerLink='/admin/newphase'>Create New Semester</a>
+                   <a routerLink='/admin/newadmin'>Create New Admin</a>
                 </p>
             </div>
             <ul class="list-group">
                 <li class="list-group-item row d-flex">
-                    <div class="col-3">Dot</div>
+                    <div class="col-3">SDT</div>
                     <div class="col-3">Name</div>
-                    <div class="col-3">Status</div>
+                    <div class="col-3">Email</div>
                     <div class="col-3">Edit</div>
                 </li>
                 <div *ngFor="let item of pagedItems">
                     <li class="list-group-item row d-flex">
-                        <div class="col-3">{{item.id_dot}}</div>
-                        <div class="col-3">{{item.name}}</div>
-                        <div class="col-3">{{item.status}}</div>
+                        <div class="col-3">{{item.sdt}}</div>
+                        <div class="col-3">{{item.fullname}}</div>
+                        <div class="col-3">{{item.email}}</div>
                         <div class="col-3">
-                            <button class="btn btn-info" (click)="UpdateLecturer(item.id_dot)">Edit</button>
+                            <button class="btn btn-info" (click)="UpdateLecturer(item.profile_id)">Edit</button>
                         </div>
                     </li>
                 </div>

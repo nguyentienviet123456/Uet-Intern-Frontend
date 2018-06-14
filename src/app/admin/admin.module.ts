@@ -26,6 +26,11 @@ import { NewlecturerComponent } from './lecturer-detail/newlecturer/newlecturer.
 import { PartnerDetailComponent } from './partner-detail/partner-detail.component';
 import { NewpartnerComponent } from './partner-detail/newpartner/newpartner.component';
 import { AdminService } from '../services/admin.service';
+import { AdminDetailComponent } from './admin-detail/admin-detail.component';
+import { NewadminComponent } from './admin-detail/newadmin/newadmin.component';
+import { AdminsComponent } from './admins/admins.component';
+import { PhaseDetailComponent } from './phase-detail/phase-detail.component';
+import { NewphaseComponent } from './phase-detail/newphase/newphase.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'students', pathMatch: 'full' },
@@ -40,6 +45,11 @@ export const routes: Routes = [
   { path: 'newlecturer', component: NewlecturerComponent},
   { path: 'partner/:id', component: PartnerDetailComponent},
   { path: 'newpartner', component: NewpartnerComponent},
+  { path: 'admins', component: AdminsComponent},
+  { path: 'admin/:id', component: AdminDetailComponent},
+  { path: 'newadmin', component: NewadminComponent},
+  { path: 'phase/:id', component: PhaseDetailComponent},
+  { path: 'newphase', component: NewphaseComponent}
 ];
 @NgModule({
   imports: [
@@ -64,7 +74,12 @@ export const routes: Routes = [
     LecturerDetailComponent,
     NewlecturerComponent,
     PartnerDetailComponent,
-    NewpartnerComponent
+    NewpartnerComponent,
+    AdminDetailComponent,
+    NewadminComponent,
+    AdminsComponent,
+    PhaseDetailComponent,
+    NewphaseComponent
   ],
   exports: [
     AdminComponent

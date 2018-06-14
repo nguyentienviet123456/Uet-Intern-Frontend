@@ -7,12 +7,13 @@ import { AdminService } from '../../services/admin.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { Router } from '@angular/router';
 
+
 @Component({
-  selector: 'app-phases',
-  templateUrl: './phases.component.html',
-  styleUrls: ['./phases.component.css']
+  selector: 'app-admins',
+  templateUrl: './admins.component.html',
+  styleUrls: ['./admins.component.css']
 })
-export class PhasesComponent implements OnInit {
+export class AdminsComponent implements OnInit {
 
   constructor(private http: Http, 
     private pagerService: PagerService,
@@ -33,7 +34,7 @@ export class PhasesComponent implements OnInit {
    ngOnInit() {
     let token = "JWT " + localStorage.getItem('token');
     this._spinner.show();
-    this._adminService.GetAllSemesters(token).subscribe(res =>{
+    this._adminService.GetByRole('admin', token).subscribe(res =>{
       if(res !== undefined){
         this.allItems = res;
         this._spinner.hide();
@@ -51,7 +52,7 @@ export class PhasesComponent implements OnInit {
    }
 
    UpdateLecturer(id: number){
-    this._router.navigate(['/' + "admin/phase/"+ id]);
+    this._router.navigate(['/' + "admin/admin/"+ id]);
    }
 
 }
