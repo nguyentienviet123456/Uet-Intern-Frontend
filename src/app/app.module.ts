@@ -52,6 +52,8 @@ import { AdminComponent } from './admin/admin.component';
 import { PartnerComponent } from './partner/partner.component';
 import { GridModule } from '@progress/kendo-angular-grid';
 import { ToasterServiceService } from './toaster-service.service';
+import { UserService } from './services/user.service';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -104,7 +106,8 @@ const routes: Routes = [
     GridModule,
     FormsModule,
     BrowserAnimationsModule, 
-    ToastModule.forRoot()
+    ToastModule.forRoot(),
+    NgxSpinnerModule
   ],
   providers: [
     AUTH_PROVIDERS,
@@ -113,7 +116,8 @@ const routes: Routes = [
     PartnerGuard,
     LecturerGuard,
     LoginGuard,
-    ToasterServiceService
+    ToasterServiceService,
+    UserService
   ],
   bootstrap: [AppComponent]
 })

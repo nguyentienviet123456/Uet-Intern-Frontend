@@ -21,7 +21,7 @@ export class LoginGuard implements CanActivate {
       if(this.role === "admin"){
         this.Navigate("admin")
       };
-      if(this.role === "user"){
+      if(this.role === "sinhvien"){
         this.Navigate("user")
       };
       if(this.role === "partner"){

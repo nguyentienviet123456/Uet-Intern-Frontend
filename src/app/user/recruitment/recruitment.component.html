@@ -78,15 +78,20 @@
           <h5 style="border-bottom: 1px dotted black">
             Chọn giảng viên
           </h5>
-          <div class="dropdown">
-            <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true"
-              aria-expanded="false">
-              Lecturers
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-              <button class="dropdown-item" type="button">Action</button>
-              <button class="dropdown-item" type="button">Another action</button>
-              <button class="dropdown-item" type="button">Something else here</button>
+          <div class="row">
+            <div class="dropdown col-md-6">
+              <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false">
+                Lecturers
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                <button class="dropdown-item" type="button">Action</button>
+                <button class="dropdown-item" type="button">Another action</button>
+                <button class="dropdown-item" type="button">Something else here</button>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <button class="btn btn-info">Register</button>
             </div>
           </div>
         </div>
@@ -103,16 +108,16 @@
           </h4>
           <form class="register-out-uni-form" style="padding-top: 20px">
             <label for="companyname" class="sr-only">companyname</label>
-            <input type="text" id="companyname" class="form-control" placeholder="companyname" autofocus #companyname>
+            <input type="text" id="companyname" class="form-control" placeholder="companyname" autofocus  [(ngModel)]="companyName" [ngModelOptions]="{standalone: true}" autocomplete='companyName'>
             <label for="companyaddress" class="sr-only">companyaddress</label>
-            <input type="text" id="companyaddress" class="form-control" placeholder="companyaddress" required #companyaddress>
+            <input type="text" id="companyaddress" class="form-control" placeholder="companyaddress" required [(ngModel)]="companyAddress" [ngModelOptions]="{standalone: true}" autocomplete='companyAddress'>
             <label for="companyemail" class="sr-only">companyemail</label>
-            <input type="text" id="companyemail" class="form-control" placeholder="companyemail" required #companyemail>
+            <input type="text" id="companyemail" class="form-control" placeholder="companyemail" required [(ngModel)]="companyEmail" [ngModelOptions]="{standalone: true}" autocomplete='companyEmail'>
             <label for="companyphone" class="sr-only">companyphone</label>
-            <input type="text" id="companyphone" class="form-control" placeholder="companyphone" required #companyphone>
+            <input type="text" id="companyphone" class="form-control" placeholder="companyphone" required [(ngModel)]="companyPhone" [ngModelOptions]="{standalone: true}" autocomplete='companyPhone'>
           </form>
           <div style="padding-top:20px">
-            <button class="btn btn-primary">Đăng ký</button>
+            <button class="btn btn-primary" (click)="RegisterCompany()">Đăng ký</button>
           </div>
         </div>
       </div>

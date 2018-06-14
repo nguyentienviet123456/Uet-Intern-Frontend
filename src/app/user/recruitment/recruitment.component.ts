@@ -7,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RecruitmentComponent implements OnInit {
 
+  companyName: string;
+  companyAddress: string;
+  companyEmail: string;
+  companyPhone: string;
   showNavigate = false;
   constructor() { }
 
@@ -14,4 +18,7 @@ export class RecruitmentComponent implements OnInit {
 
   }
 
+  RegisterCompany(){
+    console.log(this.companyAddress);
+  }
 }

@@ -14,7 +14,7 @@ export class LoggedInGuardUser implements CanActivate {
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
      const isLoggedIn = this.authService.isLoggedIn();
      console.log(this.role);
-     if (isLoggedIn && this.role == "user") {
+     if (isLoggedIn && this.role == "sinhvien") {
        return true;
      } else {
       this.NavigateLoginPage();

@@ -1,41 +1,34 @@
-<div class="detail-user row" style="padding-top: 20px">
-    <div class="information-frame col-md-offset-2">
+<div  class="row justify-content-center" style="padding-top: 20px">
+    <div class="col-8">
       <h4 style="border-bottom: 1px dotted black">
-        thông tin cá nhân
+        Create New Student
       </h4>
       <div class="informatino-form">
         <form novalidate>
           <fieldset>
             <div class="form-group">
-              <label>first name</label>
-              <input type="text" class="form-control">
+              <label>Name</label>
+              <input type="text" class="form-control"  [(ngModel)]="model.name" [ngModelOptions]="{standalone: true}" autocomplete='model.name'>
             </div>
   
             <div class="form-group">
-              <label>last name</label>
-              <input type="text" class="form-control">
+              <label>Mssv</label>
+              <input type="text" class="form-control" [(ngModel)]="model.mssv" [ngModelOptions]="{standalone: true}" autocomplete='model.mssv'>
             </div>
           </fieldset>
   
           <div class="form-group">
             <label>email</label>
-            <input type="email" class="form-control">
+            <input type="text" class="form-control" [(ngModel)]="model.email" [ngModelOptions]="{standalone: true}" autocomplete='model.email'>
           </div>
   
           <div class="form-group">
             <label>password</label>
-            <input type="password" class="form-control">
-          </div>
-  
-          <div class="form-group">
-            <label>language</label>
-            <select class="form-control">
-              <option value="">please select a language</option>
-            </select>
+            <input type="password" class="form-control" [(ngModel)]="model.password" [ngModelOptions]="{standalone: true}" autocomplete='model.password'>
           </div>
         </form>
         <div style="padding-top:20px">
-          <button class="btn btn-primary">Update</button>
+          <button class="btn btn-primary" (click)="CreateStudent()">Update</button>
         </div>
       </div>
   </div>

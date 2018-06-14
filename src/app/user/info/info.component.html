@@ -7,38 +7,42 @@
       thông tin cá nhân
     </h4>
     <div class="informatino-form">
-      <form novalidate>
+      <form novalidate (submit)="updateStudent()" >
         <fieldset>
           <div class="form-group">
-            <label>first name</label>
-            <input type="text" class="form-control">
+            <label>Name</label>
+            <input type="text" class="form-control" [(ngModel)]="name" [ngModelOptions]="{standalone: true}" autocomplete='name'>
           </div>
 
           <div class="form-group">
-            <label>last name</label>
-            <input type="text" class="form-control">
+            <label>Email</label>
+            <input type="text" class="form-control" [(ngModel)]="email" [ngModelOptions]="{standalone: true}" autocomplete='email'>
           </div>
         </fieldset>
 
         <div class="form-group">
-          <label>email</label>
-          <input type="email" class="form-control">
+          <label>Skype ID</label>
+          <input type="text" class="form-control" [(ngModel)]="skypeId" [ngModelOptions]="{standalone: true}" autocomplete='skypeId'>
         </div>
 
         <div class="form-group">
-          <label>password</label>
-          <input type="password" class="form-control">
+          <label>Facebook</label>
+          <input type="text" class="form-control" [(ngModel)]="facebook" [ngModelOptions]="{standalone: true}" autocomplete='facebook'>
         </div>
 
         <div class="form-group">
-          <label>language</label>
-          <select class="form-control">
-            <option value="">please select a language</option>
-          </select>
+          <label>Phone</label>
+          <input type="text" class="form-control" [(ngModel)]="phoneNumber" [ngModelOptions]="{standalone: true}" autocomplete='phoneNumber'> 
         </div>
+
+        <div class="form-group">
+          <label>Language Skill</label>
+          <input type="text" class="form-control" [(ngModel)]="skillLanguage" [ngModelOptions]="{standalone: true}" autocomplete='skillLanguage'>
+        </div>
+
       </form>
       <div style="padding-top:20px">
-        <button class="btn btn-primary">Update</button>
+        <button class="btn btn-primary" type="submit" (click)="updateStudent()">Update</button>
       </div>
     </div>
   </div>
