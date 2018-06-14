@@ -11,24 +11,24 @@
           </div>
           <ul class="list-group">
               <li class="list-group-item row d-flex">
-                  <div class="col-1">MSSV</div>
-                  <div class="col-4">Name</div>
-                  <div class="col-4">Birthday</div>
+                  <div class="col-3">SDT</div>
+                  <div class="col-3">Name</div>
+                  <div class="col-3">Email</div>
                   <div class="col-3">Edit</div>
               </li>
               <div *ngFor="let item of pagedItems">
                   <li class="list-group-item row d-flex">
-                      <div class="col-1">MSSV</div>
-                      <div class="col-4">{{item.name}}</div>
-                      <div class="col-4">Birthday</div>
+                      <div class="col-3">{{item.sdt}}</div>
+                      <div class="col-3">{{item.fullname}}</div>
+                      <div class="col-3">{{item.email}}</div>
                       <div class="col-3">
-                          <button class="btn btn-info">Edit</button>
+                          <button class="btn btn-info" (click)="UpdateLecturer(item.profile_id)">Edit</button>
                       </div>
                   </li>
               </div>
           </ul>
           <!-- items being paged -->
-          <!-- <div class="row">
+          <div class="row">
               <div class="col-md-2"></div>
               <div class="col-md-8">
                   <ul *ngIf="pager.pages && pager.pages.length" class="pagination ">
@@ -49,7 +49,7 @@
                       </li>
                   </ul>
               </div>
-          </div> -->
+          </div>
       </div>
   </div>
 </div>

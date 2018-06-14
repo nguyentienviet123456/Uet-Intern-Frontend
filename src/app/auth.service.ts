@@ -3,10 +3,12 @@ import { Http, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { Constants } from './model/constants';
 import { Observable } from "rxjs/Rx";
+import { constants } from 'fs';
 @Injectable()
 export class AuthService {
   private _urlLogin = Constants.BaseUrl + "/api/auth/login";
   private _urlGetUserByToken = Constants.BaseUrl + "/api/auth/account";
+  private _urlChangePass = Constants.BaseUrl + "/api/auth/change-password";
   private getUserByTokenUrl = '';
   private token = '';
   constructor(private _http: Http) { }
@@ -82,6 +84,18 @@ export class AuthService {
     catch(error){
     }
     return role;
+  }
+
+  public ChangePassWord(oldPass: string, newPass: string,token: string){
+    let headers = new Headers();
+    headers.append('Content-type', 'application/json');
+    headers.append('Authorization', token);
+    let body = JSON.stringify({
+      old_password: oldPass,
+      new_password : newPass
+    })
+    return this._http.post(this._urlChangePass,body ,{ headers: headers })
+      .map(res => res.json());
   }
   
 }

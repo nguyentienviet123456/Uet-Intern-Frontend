@@ -52,6 +52,7 @@ export class LoginComponent implements OnInit {
               this._toasterService.Success('Login!', 'Success!');
               //set role
               localStorage.setItem('role',res.role);
+              localStorage.setItem('id',res.profile_id);
               if (res.role == 'sinhvien') {
                 this.Navigate('user');
               }

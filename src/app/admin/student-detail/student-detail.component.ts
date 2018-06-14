@@ -23,8 +23,8 @@ export class StudentDetailComponent implements OnInit {
     });
 }
   ngOnInit() {
-    this._spinner.show();
     this.token = "JWT " + localStorage.getItem('token');
+    this._spinner.show();
     this._adminService.GetStudentById(this.studentId, this.token).subscribe(res => {
       if(res !== null || res !== undefined){
         console.log(res);
