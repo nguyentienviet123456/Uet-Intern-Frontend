@@ -142,4 +142,23 @@ export class AdminService {
      return this._http.post(this.BaseUrl+"/api/admin/semesters" ,body, { headers: headers })
        .map(res => res.json());
    }
+
+   //Gets Post by PostId
+   public GetPosts(token: string)
+   {
+    let headers = new Headers();
+     headers.append('Content-type', 'application/json');
+     headers.append('Authorization', token);
+     return this._http.get(this.BaseUrl+"/api/student/posts/1" , { headers: headers })
+     .map(res => res.json());
+   }
+
+   //Follows Post by Post Identity
+   public FollowPost(id: string, token: string){
+    let headers = new Headers();
+    headers.append('Content-type', 'application/json');
+    headers.append('Authorization', token);
+    return this._http.post(this.BaseUrl+"/api/student/follow/"+id , { headers: headers })
+    .map(res => res.json());
+   }
 }

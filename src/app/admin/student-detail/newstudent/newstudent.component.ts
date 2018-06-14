@@ -5,6 +5,7 @@ import 'rxjs/add/operator/map';
 import { AdminService } from '../../../services/admin.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { Router } from '@angular/router';
+import { ToasterServiceService } from '../../../toaster-service.service';
 
 @Component({
   selector: 'app-newstudent',
@@ -34,7 +35,8 @@ export class NewstudentComponent implements OnInit {
   constructor(private http: Http,
     private _adminService: AdminService,
     private _spinner: NgxSpinnerService,
-    private _router: Router
+    private _router: Router,
+    private _toasterService: ToasterServiceService,
   ) { }
 
   ngOnInit() {
@@ -58,6 +60,7 @@ export class NewstudentComponent implements OnInit {
     this._adminService.CreateNewUser('sinhvien', token, body).subscribe(data => {
       if(data !== null || data !== undefined){
         this._spinner.hide();
+        this._toasterService.Success('Create!', 'Success!');
         console.log(data);
       }
       else{

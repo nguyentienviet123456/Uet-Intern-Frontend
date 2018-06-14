@@ -8,7 +8,7 @@
         <div class="card-title-custom">
           <h5 style="border-bottom: 1px dotted black">
             <a routerLink="/user/viewpartner">
-              {{item.fullname}}
+              {{item.doitac.fullname}}
             </a>
           </h5>
         </div>
@@ -16,11 +16,11 @@
           <div class="col-md-7">
             <a routerLink="/user/viewpartner">xem them</a>
             <div class="card-date">
-              <div> {{item.sdt}}</div>
+              <div> {{item.doitac.email}}</div>
             </div>
           </div>
           <div class="col-md-5" style="padding-top: 10px">
-            <button class="btn btn-info">Follow</button>
+            <button class="btn btn-info" (click)="Follow(item.id_post)">Follow</button>
           </div>
         </div>
       </div>

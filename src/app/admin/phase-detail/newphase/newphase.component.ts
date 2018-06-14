@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import { NgxSpinnerService } from 'ngx-spinner';
 import { AdminService } from '../../../services/admin.service';
+import { ToasterServiceService } from '../../../toaster-service.service';
 
 @Component({
   selector: 'app-newphase',
@@ -16,7 +17,8 @@ export class NewphaseComponent implements OnInit {
   constructor(private _activedRoute: ActivatedRoute,
     private _adminService: AdminService,
     private _spinner: NgxSpinnerService,
-    private _router: Router
+    private _router: Router,
+    private _toasterService: ToasterServiceService,
   ) {
 }
   ngOnInit() {
@@ -32,9 +34,10 @@ export class NewphaseComponent implements OnInit {
     this._adminService.CreatePhase(this.token, body).subscribe(res => {
       if(res !== null || res !== undefined){
         this._spinner.hide();
+        this._toasterService.Success('Create!', 'Success!');
         console.log(res);
       }
-    })
+    });
     this._spinner.hide();
   }
 

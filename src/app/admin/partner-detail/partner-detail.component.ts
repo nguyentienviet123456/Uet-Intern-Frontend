@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import { AdminService } from '../../services/admin.service';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { ToasterServiceService } from '../../toaster-service.service';
 @Component({
   selector: 'app-partner-detail',
   templateUrl: './partner-detail.component.html',
@@ -15,7 +16,8 @@ export class PartnerDetailComponent implements OnInit {
   constructor(private _activedRoute: ActivatedRoute,
     private _adminService: AdminService,
     private _spinner: NgxSpinnerService,
-    private _router: Router
+    private _router: Router,
+    private _toasterService: ToasterServiceService,
   ) {
     this._activedRoute.params.subscribe( params => {
       console.log(params);
@@ -39,8 +41,10 @@ export class PartnerDetailComponent implements OnInit {
     this._adminService.UpdateStudent(this.studentId,this.token, this.Student).subscribe(res => {
       if(res !== null || res !== undefined){
         this._spinner.hide();
+        this._toasterService.Success('Update!', 'Success!');
         console.log(res);
       }
-    })
+    });
+    this._spinner.hide();
   }
 }
